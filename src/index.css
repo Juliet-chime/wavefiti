@@ -7,12 +7,13 @@
   --font-Satoshi: "Satoshi", "sans-serif";
   --font-geist: "Geist", sans-serif;
   --font-inter: "Inter", sans-serif;
-   --font-migra: "Migra";
+  --font-migra: "Migra";
   --color-primaryBlue-100: #249EFF;
   --color-primaryBlack-100: #111111;
   --color-primaryWhite: #F5F5F5;
+  --color-textbg: #D6F6DD;
 
-    --color-hover-bg: #2c2c2c;
+  --color-hover-bg: #2c2c2c;
 }
 
 :root {
@@ -74,10 +75,27 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 15s linear infinite;
 }

@@ -25,6 +25,14 @@ const imageArray = [
   vector,
 ];
 
+const CountryImage = ({ source }) => {
+  return (
+    <div className="w-6 h-6 rounded-full">
+      <img src={source} className="w-full h-full rounded-full" />
+    </div>
+  );
+};
+
 const Header = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lastItem, setLastItem] = useState(imageArray.length - 1);
@@ -60,6 +68,9 @@ const Header = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const text =
+    "Low fees. • No banks. • Real control. • Crypto-powered. • Global reach. • Secure & transparent. • Fast transfers. • Low fees. • No banks. • Real control. • Crypto-powered. • Global reach. • Secure & transparent. • ";
 
   //    useEffect(() => {
   //   const interval = setInterval(() => {
@@ -101,19 +112,10 @@ const Header = () => {
 
           <div className="text-center">
             <div className=" flex items-center justify-center space-x-2 w-24 h-8.5 m-auto rounded-full bg-white p-2">
-              <div className="w-6 h-6 rounded-full">
-                <img
-                  src={imageArray[activeIndex]}
-                  className="w-full h-full rounded-full"
-                />
-              </div>
+              <CountryImage source={imageArray[activeIndex]} />
+
               <AiOutlineSwap />
-              <div className="w-6 h-6 rounded-full">
-                <img
-                  src={imageArray[lastItem]}
-                  className="w-full h-full rounded-full"
-                />
-              </div>
+              <CountryImage source={imageArray[lastItem]} />
             </div>
 
             <div className="mt-6 ">
@@ -143,6 +145,12 @@ const Header = () => {
           <div className="hidden lg:flex">
             <img src={rightherobg} className="w-[260px] object-contain" />
           </div>
+        </div>
+      </div>
+      <div className="w-full overflow-hidden bg-textbg text-primaryBlack-100 py-2 font-geist font-medium text-xl">
+        <div className="flex whitespace-nowrap animate-scroll">
+          <span className="text-sm font-medium px-4">{text}</span>
+          <span className="text-sm font-medium px-4">{text}</span>
         </div>
       </div>
     </header>
