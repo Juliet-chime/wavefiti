@@ -12,12 +12,12 @@
   --color-primaryBlack-100: #111111;
   --color-primaryWhite: #F5F5F5;
   --color-textbg: #D6F6DD;
-
+--color-secondaryBlue:#85C9FF;
   --color-hover-bg: #2c2c2c;
 }
 
 :root {
-  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: var(--font-geist);
   line-height: 1.5;
   font-weight: 400;
 

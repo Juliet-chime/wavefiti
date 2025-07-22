@@ -95,6 +95,7 @@ const Header = () => {
 
   //   return () => clearInterval(interval);
   // }, []);
+
   return (
     <header className="relative h-[800px]">
       <div
@@ -124,7 +125,7 @@ const Header = () => {
                 <br />
                 money freely.
               </h1>
-              <p className="text-white max-w-120 m-auto font-geist font-medium text-lg">
+              <p className="text-white max-w-120 m-auto font-medium text-lg">
                 Fast, low-fee transfers that work across borders, currencies,
                 and life situations. Powered by crypto
               </p>
@@ -147,7 +148,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="w-full overflow-hidden bg-textbg text-primaryBlack-100 py-2 font-geist font-medium text-xl">
+      <div className="w-full overflow-hidden bg-textbg text-primaryBlack-100 py-2 font-medium text-xl">
         <div className="flex whitespace-nowrap animate-scroll">
           <span className="text-sm font-medium px-4">{text}</span>
           <span className="text-sm font-medium px-4">{text}</span>

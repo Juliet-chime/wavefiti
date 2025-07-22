@@ -9,15 +9,6 @@
 @font-face {
   font-family: 'Migra';
   src: url('./Migra/Migra-Extrabold.woff2') format('woff2');
-  /* font-weight: 700; */
   font-style: normal;
   font-display: swap;
 }
-
-/* @font-face {
-  font-family: 'YourFont';
-  src: url('./YourFont-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-} */
