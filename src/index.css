@@ -13,7 +13,9 @@
   --color-primaryWhite: #F5F5F5;
   --color-textbg: #D6F6DD;
 --color-secondaryBlue:#85C9FF;
+--color-secondaryBlue-100:#B8DFFF;
   --color-hover-bg: #2c2c2c;
+  --radius-medium:37.02px;
 }
 
 :root {
@@ -46,10 +48,10 @@ body {
   /* min-height: 100vh; */
 }
 
-h1 {
+/* h1 {
   font-size: 3.2em;
   line-height: 1.1;
-}
+} */
 
 /* button {
   border-radius: 8px;

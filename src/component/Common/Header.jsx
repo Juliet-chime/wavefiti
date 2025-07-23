@@ -14,6 +14,7 @@ import CustomInputfield from "../inputfield/CustomInputfield";
 import Button from "../inputfield/Button";
 import { MdEmail } from "react-icons/md";
 import { AiOutlineSwap } from "react-icons/ai";
+import { HeroTitle } from "./HeroTitle";
 
 const imageArray = [
   progress,
@@ -120,15 +121,12 @@ const Header = () => {
             </div>
 
             <div className="mt-6 ">
-              <h1 className="font-extrabold font-migra lg:text-hero text-white leading-tight">
-                Send. Get paid. Move
-                <br />
-                money freely.
-              </h1>
-              <p className="text-white max-w-120 m-auto font-medium text-lg">
-                Fast, low-fee transfers that work across borders, currencies,
-                and life situations. Powered by crypto
-              </p>
+              <HeroTitle
+                heading={" Send. Get paid. Move"}
+                title={"money freely."}
+                description={`Fast, low-fee transfers that work across borders, currencies,
+                and life situations. Powered by crypto`}
+              />
               <div className="mt-8 md:mt-20 bg-primaryWhite rounded-full h-14 w-full md:w-100 m-auto flex items-center py-6 px-3">
                 <div className="flex-1/2">
                   <CustomInputfield
