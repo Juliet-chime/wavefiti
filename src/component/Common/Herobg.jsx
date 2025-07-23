@@ -1,14 +1,20 @@
-import React from 'react'
+import React from "react";
 
-const Herobg = ({img,children}) => {
+const Herobg = ({
+  img,
+  children,
+  bgClass = "bg-cover bg-center md:bg-center lg:bg-bottom-left",
+}) => {
   return (
     <div
-      className={`h-120 w-full flex border rounded-medium bg-cover bg-center md:bg-center lg:bg-bottom-right bg-no-repeat object-contain`}
-            style={{
-              backgroundImage: `url(${img})`,
-            }}
-    >{children}</div>
-  )
-}
+      className={`h-107 md:h-140 flex rounded-medium bg-cover ${bgClass} relative bg-no-repeat object-contain`}
+      style={{
+        backgroundImage: `url(${img})`,
+      }}
+    >
+      {children}
+    </div>
+  );
+};
 
-export default Herobg
+export default Herobg;
