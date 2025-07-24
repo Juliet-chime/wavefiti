@@ -1,7 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import herobg from "../../assets/images/herobg.png";
-import leftherobg from "../../assets/images/leftheropng.png";
-import rightherobg from "../../assets/images/rightheropng.png";
 import germany from "../../assets/images/Germany.png";
 import avatar from "../../assets/images/Avatar.png";
 import progress from "../../assets/images/progress.png";
@@ -10,11 +8,15 @@ import philippines from "../../assets/images/philippines.png";
 import vector from "../../assets/images/Vector.png";
 import uk from "../../assets/images/uk.png";
 import Navbar from "./Navbar";
-import CustomInputfield from "../inputfield/CustomInputfield";
-import Button from "../inputfield/Button";
-import { MdEmail } from "react-icons/md";
 import { AiOutlineSwap } from "react-icons/ai";
 import { HeroTitle } from "./HeroTitle";
+import SearchComponent from "./SearchComponent";
+import { getRandomIndex } from "../../utils/getRandomIndex";
+import { text } from "../../data/navData";
+import FeatureCard from "./FeatureCard";
+import whitesquare from "../../assets/images/sendsquarewhite.svg";
+import whiteusd from "../../assets/images/usdcoinwhite.svg";
+import swaparrowwhite from "../../assets/images/arrowswapwhite.svg";
 
 const imageArray = [
   progress,
@@ -38,14 +40,6 @@ const Header = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lastItem, setLastItem] = useState(imageArray.length - 1);
 
-  function getRandomIndex(excludeIndices = [], max) {
-    let index;
-    do {
-      index = Math.floor(Math.random() * max);
-    } while (excludeIndices.includes(index));
-    return index;
-  }
-
   const prevActiveIndex = useRef(activeIndex);
   const prevLastItem = useRef(lastItem);
 
@@ -62,54 +56,52 @@ const Header = () => {
       setActiveIndex(newActive);
       setLastItem(newLast);
 
-      // Update refs
       prevActiveIndex.current = newActive;
       prevLastItem.current = newLast;
-    }, 3000); // update every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
-
-  const text =
-    "Low fees. • No banks. • Real control. • Crypto-powered. • Global reach. • Secure & transparent. • Fast transfers. • Low fees. • No banks. • Real control. • Crypto-powered. • Global reach. • Secure & transparent. • ";
-
-  //    useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     let firstIndex = Math.floor(Math.random() * imageArray.length);
-  //     let secondIndex = Math.floor(Math.random() * imageArray.length);
-
-  //     // Ensure the two indices are different
-  //     while (secondIndex === firstIndex) {
-  //       secondIndex = Math.floor(Math.random() * imageArray.length);
-  //     }
-
-  //     if(firstIndex === activeIndex){
-  //       firstIndex = Math.floor(Math.random() * imageArray.length);
-  //     }
-  //     if(secondIndex === activeIndex){
-  //       secondIndex = Math.floor(Math.random() * imageArray.length);
-  //     }
-
-  //     setActiveIndex(firstIndex);
-  //     setLastItem(secondIndex);
-  //   }, 3000); // update every 3 seconds
-
-  //   return () => clearInterval(interval);
-  // }, []);
 
   return (
     <header className="relative h-[800px]">
       <div
         className={`h-11/12 bg-cover bg-center bg-no-repeat`}
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${herobg})`,
-          // backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${herobg})`,
+          backgroundImage: `url(${herobg})`,
         }}
       >
         <Navbar />
-        <div className="flex items-center justify-center lg:justify-between mt-12 px-3 md:px-15">
-          <div className="hidden lg:flex mt-4">
-            <img src={leftherobg} className="w-[260px] object-contain" />
+        <div className="flex items-center relative justify-center mt-12 px-3 md:px-15">
+          <div className="absolute hidden md:flex bg-amber-950 left-10 top-18">
+            <FeatureCard
+              icon={<img src={whitesquare} className="object-contain" />}
+              title={"Sent successfully 💸"}
+              description={"You just sent ₦50,000 to Ada"}
+              bgstyle="border-none bg-white/20"
+              position="-top-2 rotate-0 md:rotate-12"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
+            <FeatureCard
+              icon={<img src={whiteusd} className="object-contain" />}
+              title={"Funds received!  🎉"}
+              description={"You received 120 USDC from Upwork."}
+              bgstyle="border-none bg-white/6"
+              position="top-25 -left-3 rotate-3"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
+
+            <FeatureCard
+              icon={<img src={swaparrowwhite} className="object-contain" />}
+              title={"Swapped successfully"}
+              description={"50 USDC → ₦65,000. Converted at real-time rates."}
+              bgstyle="border-none bg-white/8"
+              position="top-45 -left-3"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
           </div>
 
           <div className="text-center">
@@ -127,22 +119,51 @@ const Header = () => {
                 description={`Fast, low-fee transfers that work across borders, currencies,
                 and life situations. Powered by crypto`}
               />
-              <div className="mt-8 md:mt-20 bg-primaryWhite rounded-full h-14 w-full md:w-100 m-auto flex items-center py-6 px-3">
-                <div className="flex-1/2">
-                  <CustomInputfield
-                    placeholder="Enter your email"
-                    icon={MdEmail}
-                  />
-                </div>
-                <div className="flex-1/3 h-10">
-                  <Button type="secondary">Get started</Button>
-                </div>
-              </div>
+              <SearchComponent />
             </div>
           </div>
 
-          <div className="hidden lg:flex">
-            <img src={rightherobg} className="w-[260px] object-contain" />
+          <div className="absolute hidden md:flex right-83 top-16">
+            <FeatureCard
+              icon={<img src={whitesquare} className="object-contain" />}
+              title={"Sent successfully 💸"}
+              description={"You just sent ₦50,000 to Ada"}
+              bgstyle="border-none bg-white/20"
+              position="-top-2 rotate-0 md:-rotate-8"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
+            <FeatureCard
+              icon={<img src={whiteusd} className="object-contain" />}
+              title={"Funds received!  🎉"}
+              description={"You received 120 USDC from Upwork."}
+              bgstyle="border-none bg-white/6"
+              position="top-25 -left-3 rotate-4"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
+
+            <FeatureCard
+              icon={<img src={swaparrowwhite} className="object-contain" />}
+              title={"Swapped successfully"}
+              description={"50 USDC → ₦65,000. Converted at real-time rates."}
+              bgstyle="border-none bg-white/8"
+              position="top-45 -left-3"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
+          </div>
+
+          <div className="flex absolute md:hidden right-83 -bottom-30">
+            <FeatureCard
+              icon={<img src={whitesquare} className="object-contain" />}
+              title={"Sent successfully 💸"}
+              description={"You just sent ₦50,000 to Ada"}
+              bgstyle="border-none bg-white/20"
+              position="top-25 -left-10 rotate-0 md:-rotate-8"
+              animationClass="animate-float lg:block"
+              iconBg="bg-primaryBlue-100"
+            />
           </div>
         </div>
       </div>

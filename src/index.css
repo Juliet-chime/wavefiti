@@ -12,12 +12,16 @@
   --color-primaryBlack-100: #111111;
   --color-primaryWhite: #F5F5F5;
   --color-textbg: #D6F6DD;
---color-secondaryBlue:#85C9FF;
---color-secondaryBlue-100:#B8DFFF;
+  --color-secondaryBlue: #85C9FF;
+  --color-secondaryBlue-100: #B8DFFF;
   --color-hover-bg: #2c2c2c;
-  --color-primaryGreen-100:#D6F6DD;
-      --radius-small:20px;
-  --radius-medium:37.02px;
+  --color-primaryGreen-100: #D6F6DD;
+  --color-secondaryBlack: #262626;
+  --color-primaryash: #CCCCCC;
+  --color-secondaryash: #808080;
+  --color-textAsh: #8C8C8C;
+  --radius-small: 20px;
+  --radius-medium: 37.02px;
 }
 
 :root {
@@ -27,52 +31,14 @@
 
   color: var(--color-primaryBlack-100);
   font-synthesis: none;
-  /* background-color: red; */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-} */
-
 body {
   margin: 0;
-  /* display: flex;
-  place-items: center; */
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
 }
-
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -104,28 +70,30 @@ button:focus-visible {
   animation: scroll 15s linear infinite;
 }
 
-   @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        @keyframes scroll-right {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        
-        .animate-scroll-left {
-          animation: scroll-left 40s linear infinite;
-        }
-        
-        .animate-scroll-right {
-          animation: scroll-right 40s linear infinite;
-        }
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 40s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 40s linear infinite;
+}

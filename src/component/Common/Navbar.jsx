@@ -1,11 +1,10 @@
-import React from "react";
 import logo from "../../assets/images/Logo.png";
 import { navbarData } from "../../data/navData";
 import Button from "../inputfield/Button";
 
 const Navbar = () => {
   return (
-    <div className="flex items-center justify-between px-3 md:px-10 lg:px-20 py-5">
+    <div className="flex items-center justify-between px-3 md:px-10 lg:px-20 py-6">
       <div>
         <img src={logo} className="object-contain" />
       </div>
@@ -23,9 +22,7 @@ const Navbar = () => {
         })}
       </nav>
       <div className="w-38 md:42 h-10 md:h-14">
-        <Button>
-            Get early access
-        </Button>
+        <Button>Get early access</Button>
       </div>
     </div>
   );
