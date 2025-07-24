@@ -2,7 +2,7 @@ import nigeria from "../assets/images/Nigeria.png";
 import germany from "../assets/images/Germany.png";
 import avatar from "../assets/images/Avatar.png";
 import progress from "../assets/images/progress.png";
-import philippines from "../assets/images/philippines.png";
+import philippines from "../assets/images/Philippines.png";
 import vector from "../assets/images/Vector.png";
 import uk from "../assets/images/uk.png";
 import woman from "../assets/images/woman.png";
